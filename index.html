@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Anniversary</title>
+    <script src="script.js"></script>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body>
+    <div class="container">
+        <h1>Happy Anniversary!</h1>
+        <img id="anniversaryImage" src="img/FOTO 2.jpg" alt="Pasangan">
+        <p>Semoga Menjadi Hari Terbaik Di Tahun Ini</p>
+        <div id="countdown"></div>
+        <p>Semoga kedepannya bisa lebih baik lagi bisa numbuhin cinta yang lebih kuat lagi!</p>
+        <p>Semoga kita bisa berlanjut terus sampe jenjang pernikahan yaa!</p>
+        <p id="funnyMessage">"Marriage is like a deck of cards. In the beginning, all you need is two hearts and a diamond. By the end, you're looking for a club and a spade!"</p>
+        <audio controls>
+            <source src="music/Musik.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+        </audio>
+        <div class="wrapper">
+            <div class="slides">
+                <span id="slide-1"></span>
+                <span id="slide-2"></span>
+                <span id="slide-3"></span>
+                <span id="slide-4"></span>
+                <span id="slide-5"></span>
+                <span id="slide-6"></span>
+                <span id="slide-7"></span>
+                <span id="slide-8"></span>
+                <span id="slide-9"></span>
+                <span id="slide-10"></span>
+
+                <div class="images">
+                <img src="img/FOTO 2.jpg" alt="images 1">
+                <img src="img/Foto 4.jpg" alt="images 2">
+                <img src="img/FOTO 1 - Copy.jpg" alt="images 3">
+                <img src="img/Foto 5.jpg" alt="images 4">
+                <img src="img/Foto 6.jpg" alt="images 5">
+                <img src="img/FOTO 7.jpg" alt="images 6">
+                <img src="img/FOTO 8.jpg" alt="images 7">
+                <img src="img/FOTO 10.jpg" alt="images 8">
+                <img src="img/FOTO 11.jpg" alt="images 9">
+                <img src="img/FOTO 9.jpg" alt="images 10">
+                 <!-- Ini Isinya Gambar Sama Bebep Jara -->
+        </div>
+        </div>
+        <!--Navigasi-->
+        <div class="navigation">
+            <a href="#slide-1">1</a>
+            <a href="#slide-2">2</a>
+            <a href="#slide-3">3</a>
+            <a href="#slide-4">4</a>
+            <a href="#slide-5">5</a>
+            <a href="#slide-6">6</a>
+            <a href="#slide-7">7</a>
+            <a href="#slide-8">8</a>
+            <a href="#slide-9">9</a>
+            <a href="#slide-10">10</a>
+        </div>
+    </div>
+    </div>
+    <script>
+    // Set tanggal anniv
+    const anniversaryDate = new Date("2023-9-13"); // Masukin tanggal
+
+    function updateCountdown() {
+        const today = new Date();
+        const timeDiff = anniversaryDate - today;
+
+        if (timeDiff < 0) {
+            document.getElementById("countdown").innerHTML = "Happy Anniversary!❤️";
+        } else {
+            const days = Math.floor(timeDiff / (1000 * 30 * 30 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until our anniversary!`;
+        }
+    }
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % imageCount;
+        updateSlide();
+    }
+
+    function updateSlide() {
+        const offset = -currentIndex * 100;
+        slider.style.transform = `translateX(${offset}%)`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    </script>
+</body>
+</html>
